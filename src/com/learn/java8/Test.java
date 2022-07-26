@@ -25,10 +25,15 @@ public class Test {
     );
 
     public static void main(String[] args) {
-        List<Employee> ageList = getAgeList(employees);
+        /*List<Employee> ageList = getAgeList(employees);
         System.out.println(ageList);
         List<Employee> salaryList = getSalaryList(employees);
-        System.out.println(salaryList);
+        System.out.println(salaryList);*/
+        String[] split = ",0,".split(",");// 两个元素
+        System.out.println(split.length);
+        System.out.println(split[0]);
+        System.out.println(split[1]);
+        System.out.println(split[2]);
     }
 
     public static List<Employee> getAgeList(List<Employee> employees){
