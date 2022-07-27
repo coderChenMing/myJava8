@@ -18,7 +18,9 @@ public class Test {
     public static void main(String[] args) {
         // testSplit();
         // testSearch();
-        testReplace();
+        // testReplace();
+        // testDateReplace();
+        testDateReplace2();
     }
 
     // split使用正则进行分割: , ; 和空格(\\s表示)
@@ -48,5 +50,23 @@ public class Test {
         String s = "the quick brown fox jumps over the lazy dog.";
         String r = s.replaceAll("\\s([a-z]{4})\\s", " <b>$1</b> ");
         System.out.println(r);
+    }
+
+
+    // 年月日分成三组,每组匹配,对应$1 $2 $3
+    // 可以用$1, $2和 $3获取各group
+    public static void testDateReplace() {
+        String str = "2021/04/24";
+        String regex = "(\\d{4})[-/](\\d{2})[-/](\\d{2})";
+        String change = str.replaceAll(regex, "$1年$2月$3日");
+        System.out.println(change);//2021年04月24日
+    }
+    // 此时若用(?:)替换括号，该部分变为non-capturing group,不生成可获取的group
+    // 只有$1和$2
+    public static void testDateReplace2() {
+        String str = "2021/04/24";
+        String regex = "(?:\\d{4})[-/](\\d{2})[-/](\\d{2})";
+        String change = str.replaceAll(regex, "$1月$2日");
+        System.out.println(change);//04月24日
     }
 }
