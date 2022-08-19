@@ -92,6 +92,7 @@ public class TestUrl {
             "http://www.aa.com/servlet",
             "http://ee.com/abcSerlvet?a=8&&b=asdf",
             "ftp://192.168.0.2:8080",
+            "http://difdcabcg.ipmrdf.xyz/#/no_password",
             "http://ww.ss.com/////",
             "http://dian_md_f.lx.tpxtyc.com",
             "https://qianhu.wejianzhan.com/site/wjzst8qm/610643aa-0189-45b3-93b1-aac4aa86a085?source=bdpc&plan=MTCJ_%5Bpinpai%5D(jituan)%7Bchun%7DWAP&unit=daili&keyword=maotaidaili&e_creative=59525187014&e_keywordid=413262002128&e_keywordid2=393006621901&fid=nHcsnj6knH04rHbkPHfsP161rjFxnWcdg1n&ch=4&bd_vid=nHcsnj6knH04rHbkPHfsP161rjFxnWcdg1PxnH0sg1wxPHbdnWRkrjTsnHf&bd_bxst=EiaKoWc207N9GpU900nD0a6Ay0Fa8WR000000Ka4tqUIslMnJQzE1TyYS_jV000000000000cjc1nWTYrj0LPYFAwbPAwDDsfH63fbR4wjf1njmsfHmvAOA0aSJFOGbK0000kbglvsY000jfVdR3m00000C0x60cslMnJQHlsrYJ8x5yLTrG_lXtotL7VtMjJUHlsrYVz284SVgfEJL5S_MnQiYsV5o0eUxw00jfzWL2",
