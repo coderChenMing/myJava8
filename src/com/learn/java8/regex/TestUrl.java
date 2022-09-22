@@ -16,19 +16,18 @@ import java.util.regex.Pattern;
  */
 public class TestUrl {
     // 子域名
-    static final String SUB_DOMAIN = "(?i:[a-z0-9]|[a-z0-9][-a-z0-9]*[a-z0-9])";
+    static final String SUB_DOMAIN = "(?i:[a-z0-9\\u4e00-\\u9fa5]|[a-z0-9\\u4e00-\\u9fa5][-a-z0-9\\u4e00-\\u9fa5]*[a-z0-9\\u4e00-\\u9fa5])";
 
     // 顶级域名
     static final String TOP_DOMAINS =
-        "(?x-i:com\\b        \n" +
-            "     |edu\\b        \n" +
-            "     |biz\\b        \n" +
-            "     |in(?:t|fo)\\b \n" +
-            "     |mil\\b        \n" +
-            "     |net\\b        \n" +
-            "     |org\\b        \n" +
-            "     |[a-z][a-z]\\b \n" + // 国家代码
-            ")                   \n";
+        "(?x-i:com\\b" +
+            "|edu\\b" +
+            "|biz\\b" +
+            "|in(?:t|fo)\\b" +
+            "|mil\\b" +
+            "|net\\b" +
+            "|org\\b" +
+            "|[a-z][a-z]\\b)" ;// 国家代码
     // 主机名
     static final String HOSTNAME = "(?:" + SUB_DOMAIN + "\\.)+" + TOP_DOMAINS;
 
@@ -44,36 +43,35 @@ public class TestUrl {
     /*static final String PORT =
         "(?:[0-5]?[0-9]{1,4}|6(?:[0-4][0-9]{3}|5(?:[0-4][0-9]{2}|5(?:[0-2][0-9]|3[0-5]))))";*/
     static final String PORT =
-        "(?:                          \n" +
-            "  [0-5]?[0-9]{1,4}           \n" +
-            "  |                          \n" +
-            "  6(?:                       \n" +
-            "     [0-4][0-9]{3}           \n" +
-            "     |                       \n" +
-            "     5(?:                    \n" +
-            "        [0-4][0-9]{2}        \n" +
-            "        |                    \n" +
-            "        5(?:                 \n" +
-            "           [0-2][0-9]        \n" +
-            "           |                 \n" +
-            "           3[0-5]            \n" +
-            "         )                   \n" +
-            "      )                      \n" +
-            "   )                         \n" +
+        "(?:" +
+            "[0-5]?[0-9]{1,4}" +
+            "|" +
+            "6(?:" +
+            "[0-4][0-9]{3}" +
+            "|" +
+            "5(?:" +
+            "[0-4][0-9]{2}" +
+            "|" +
+            "5(?:" +
+            "[0-2][0-9]" +
+            "|" +
+            "3[0-5]" +
+            ")" +
+            ")" +
+            ")" +
             ")";
 
 
     // URL 表达式
     static final String URL =
-        "(?x:                                                \n" +
-            "  \\b                                               \n" +
-            "  (?:                                               \n" +
-            "    (?: ftp | http s? ): // [-\\w]+(\\.\\w[-\\w]*)+ \n" +
-            "   |                                                \n" +
-            "    " + HOSTNAME + "                                \n" +
-            "  )                                                 \n" +
-            "  (?: : " + PORT + " )?                             \n" +
-            "  (?: " + URL_PATH + ")?                            \n" +
+        "(?x:" +
+            "\\b" +
+            "(?:" +
+            "(?:ftp|https?)://[-\\w\\u4e00-\\u9fa5]+(\\.[-\\w\\u4e00-\\u9fa5]*)+" +
+           // "(?:ftp|https?)://[-\\w\\u4e00-\\u9fa5]+(\\.\\w[-\\w\\u4e00-\\u9fa5]*)+" +
+            "|" + HOSTNAME + ")" +
+            "(?::" + PORT + ")?" +
+            "(?:" + URL_PATH + ")?" +
             ")";
     static final String URL1 ="^\\s*((http(s)?://)|(ftp://)|())\\w+(\\.\\w+)+((:\\d{1,5})|)(/\\w*)*(/\\w+\\.(\\w+|))?([\\w- ./?％&=]*)?";
 
@@ -82,8 +80,9 @@ public class TestUrl {
     static final String URL3 = "((http|https)://)(www.)?[a-zA-Z0-9@:%._\\\\+~#?&//=]{2,256}\\\\.[a-z]{2,6}\\\\b([-a-zA-Z0-9@:%._\\\\+~#?&//=]*)";
     public static void main(String[] args) {
         // 测试代码
+        System.out.println(URL);
         String[] strs = {
-            "http://www.13.com",
+            "http://www.13.com/",
             "https://www.asdf.com.cn/asdf",
             "www.23.com",
             "http://www.123.com/tsf",
@@ -95,6 +94,9 @@ public class TestUrl {
             "http://difdcabcg.ipmrdf.xyz/#/no_password",
             "http://ww.ss.com/////",
             "http://dian_md_f.lx.tpxtyc.com",
+            "https://银监会在线服务中心.com/",
+            "https://www.银监会在线服务中心.com/",
+            "https://ww.银监会在线服务中心.com/?abc",
             "https://qianhu.wejianzhan.com/site/wjzst8qm/610643aa-0189-45b3-93b1-aac4aa86a085?source=bdpc&plan=MTCJ_%5Bpinpai%5D(jituan)%7Bchun%7DWAP&unit=daili&keyword=maotaidaili&e_creative=59525187014&e_keywordid=413262002128&e_keywordid2=393006621901&fid=nHcsnj6knH04rHbkPHfsP161rjFxnWcdg1n&ch=4&bd_vid=nHcsnj6knH04rHbkPHfsP161rjFxnWcdg1PxnH0sg1wxPHbdnWRkrjTsnHf&bd_bxst=EiaKoWc207N9GpU900nD0a6Ay0Fa8WR000000Ka4tqUIslMnJQzE1TyYS_jV000000000000cjc1nWTYrj0LPYFAwbPAwDDsfH63fbR4wjf1njmsfHmvAOA0aSJFOGbK0000kbglvsY000jfVdR3m00000C0x60cslMnJQHlsrYJ8x5yLTrG_lXtotL7VtMjJUHlsrYVz284SVgfEJL5S_MnQiYsV5o0eUxw00jfzWL2",
             "https://group.wejianzhan.com/site/wjz03ljz/93f58d2c-d8dc-4e4c-8ed4-e721ae1425d0?dynType=1&source=baidu&DY=%E6%9D%A5%E8%AE%BF%E8%BD%AC%E5%8C%96%E8%AF%8D&GJC=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&JH=%E6%9D%A5%E8%AE%BF%E8%BD%AC%E5%8C%96%E8%AE%A1%E5%88%92%E8%AF%8D&e_keywordid=439973922855&e_keywordid2=439973922855&flowType=1&dynId=108762480&fid=rHR4n104njTvP16kPWTzPWDkrNtznWFxnf&ch=4&bd_vid=rHR4n104njTvP16kPWTzPWDkrNtznWFxnNtknjKxP7tvnHfYnWTvnjnLn6&bd_bxst=EiaKu4UQAHJKcmgX00DD0K0ui6c-AgDA000000z4tqUIslMnJQzE1TR0000000000a9KPRRYnjcYPj01n1ParRc4PYczn1IaPjNan1wjnH9Kn1DYnbn4nYuKcDnkwjK7fHc3njIafbwAnbD3PHnznHfvP101fYmdfH04PnBda3mK443K0000VK4AH630000MiZdsu60000C0x60R8x5yLTrG12B4zUxIYqj5Lohoze3s8x5yLTrG_lXtotL7dIaYS_jV1pWyJWoy_IgfkOWHtoU0EP2YS_jVQn5BEP5jzexw00jDD48a",
             "https://qianhu.wejianzhan.com/site/wjzt17jm/683e2836-5e89-4ff2-b5ff-d44cda199e56?fid=nHmYn1TzrjmvrjR3rHRsnWc4PWwxnHfvnNtk&ch=4&bd_vid=nHmYn1TzrjmvrjR3rHRsnWc4PWwxnHfvnNtkg1Dsn7tYg1mkP1T3njfvnWm1&bd_bxst=EiaKIPbZ0ax4ZridKfDD0ampu0Q2I0s000000KA4tqUIslMnJQeAcQAkV5XlYs00000000000a03PjmYfYu7n1-7njuawbRkP16Yf1fdfW6zwWDYwHnYfdI276k0oG2C0f000jTVfhcr0000-w8KSh6000020Z30aQM1dVLjJTzCQeM1dVLjJUrME2OPkIgfV5o0eUHlsrYV8x5yLTrG_lXtotL7z284So55dIaYS_jV00KeC6EY",
