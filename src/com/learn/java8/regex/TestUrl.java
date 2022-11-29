@@ -82,6 +82,7 @@ public class TestUrl {
         // 测试代码
         System.out.println(URL);
         String[] strs = {
+            "http://psimrva.cn",
             "http://www.13.com/",
             "https://www.asdf.com.cn/asdf",
             "www.23.com",
@@ -110,4 +111,6 @@ public class TestUrl {
 
 
     }
+
+
 }
