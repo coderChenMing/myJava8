@@ -2,6 +2,7 @@ package com.learn.java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -29,11 +30,15 @@ public class Test {
         System.out.println(ageList);
         List<Employee> salaryList = getSalaryList(employees);
         System.out.println(salaryList);*/
-        String[] split = ",0,".split(",");// 两个元素
+        /*String[] split = ",0,".split(",");// 两个元素
         System.out.println(split.length);
         System.out.println(split[0]);
         System.out.println(split[1]);
-        System.out.println(split[2]);
+        System.out.println(split[2]);*/
+
+        HashSet<Long> set = new HashSet<>();
+        set.add(null);
+        System.out.println(set);
     }
 
     public static List<Employee> getAgeList(List<Employee> employees){
