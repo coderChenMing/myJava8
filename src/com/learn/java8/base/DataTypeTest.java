@@ -14,19 +14,20 @@ public class DataTypeTest {
         //integerCache4();
         //testMaxInt();
         //testShort();
-        testShort2();
+        //testShort2();
+        testFloat();
     }
 
     public static void byteScope() {
-        System.out.println(String.format("Byte 取值: %d ~ %d ",Byte.MIN_VALUE,Byte.MAX_VALUE));
+        System.out.println(String.format("Byte 取值: %d ~ %d ", Byte.MIN_VALUE, Byte.MAX_VALUE));
     }
 
     public static void intScope() {
-        System.out.println(String.format("Integer 取值: %d ~ %d ",Integer.MIN_VALUE,Integer.MAX_VALUE));
+        System.out.println(String.format("Integer 取值: %d ~ %d ", Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 
     public static void longScope() {
-        System.out.println(String.format("Long 取值: %d ~ %d ",Long.MIN_VALUE,Long.MAX_VALUE));
+        System.out.println(String.format("Long 取值: %d ~ %d ", Long.MIN_VALUE, Long.MAX_VALUE));
     }
 
     public static void integerCache() {
@@ -52,10 +53,10 @@ public class DataTypeTest {
         就会返回false。
         返回true的唯一情况是比较的两个对象为同一个对象，那不妨把例子中a和b的内存地址都打印出来看看：
         */
-        for(int i=0;i<150;i++){
-            Integer a=i;
-            Integer b=i;
-            System.out.println(a+" "+b+" "+System.identityHashCode(a)+" "+System.identityHashCode(b));
+        for (int i = 0; i < 150; i++) {
+            Integer a = i;
+            Integer b = i;
+            System.out.println(a + " " + b + " " + System.identityHashCode(a) + " " + System.identityHashCode(b));
         }
         /*
         Integer.class在装载（Java虚拟机启动）时，其内部类型IntegerCache的static块即开始执行，实例化并暂存数值在-128到127之间的Integer类型对象。
@@ -77,6 +78,7 @@ public class DataTypeTest {
         }
         //这样返回值就全都是true了。
     }
+
     /*自动拆箱示例*/
     public static void integerCache4() {
         int i = 100;
@@ -106,9 +108,10 @@ public class DataTypeTest {
         /*这五个Short 类型 -1 (减1)之后转换成了 Int 类型，remove() 的时候在集合中找不到 Int
         类型的数据，所以就没有删除任何元素，执行的结果就是 5*/
     }
+
     public static void testShort2() {
-        short s=2;
-        s+=1;
+        short s = 2;
+        s += 1;
         System.out.println(s);
         //s=s+1;// 直接报错
         System.out.println(s);
@@ -119,5 +122,8 @@ public class DataTypeTest {
     public static void testFloat() {
         //float a=3.4;
         //因为值 3.4 是 double 类型，float 类型级别小于 double 类型，所以会报错
+        System.out.println(3 * 0.1 == 0.3);
+        //有些浮点数不能完全精确的表示出来
+        System.out.println(3 * 0.1);//0.30000000000000004
     }
 }
