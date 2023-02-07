@@ -23,3 +23,5 @@ vssver.scc
 vssver2.scc
 *.txt
 *.svn
+idea
+out
