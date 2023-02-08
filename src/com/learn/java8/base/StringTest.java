@@ -32,6 +32,7 @@ public class StringTest {
         System.out.printf("%s==%s is %s\n", str1, str2, str1 == str2); // true
         // String str1  = "ab" + "cd"，编译器优化介绍了确定值可以进行优化，编译器会优化成  String str1 = “abcd”，指向了常量池
 
+        System.out.println("--------------------------");
         String str31 = "ab";
         String str32 = "cd";
         String str33 = str31 + str32;

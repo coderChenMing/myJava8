@@ -17,10 +17,10 @@ import java.util.regex.Pattern;
 public class Test {
     public static void main(String[] args) {
         // testSplit();
-        // testSearch();
+         testSearch();
         // testReplace();
         // testDateReplace();
-        testDateReplace2();
+        //testDateReplace2();
     }
 
     // split使用正则进行分割: , ; 和空格(\\s表示)
