@@ -32,10 +32,11 @@ public class TestDomain {
     public static void checkUrl(String url) {
         Pattern p = Pattern.compile("(?<=http://|\\.)[^.]*?\\.(com|cn|net|org|biz|info|tv)",Pattern.CASE_INSENSITIVE);
         Matcher matcher = p.matcher(url);
+        // find()方法是部分匹配，是查找输入串中与模式匹配的子串，如果该匹配的串有组还可以使用group()函数。
         if(matcher.find()) {
             //System.out.println(url.charAt(matcher.start())+"---"+url.charAt(matcher.end()));
             System.out.println(url.substring(matcher.start(), matcher.end()));
-            //System.out.println("域名是："+matcher.group());
+            System.out.println("域名是："+matcher.group());
         }
     }
 }
