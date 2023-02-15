@@ -9,7 +9,7 @@ public class TestIp {
 
     public static void main(String[] args) {
 
-        String ip = "192.168.52.251.1";
+        String ip = "123.56.64.93";
 
         System.out.println(ipRegex.matcher(ip).matches());
         //matches()是全部匹配，是将整个输入串与模式匹配，如果要验证一个输入的数据是否为数字类型或其他类型，一般要用matches()。
