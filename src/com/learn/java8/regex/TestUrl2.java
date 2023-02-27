@@ -6,16 +6,17 @@ import java.util.regex.Pattern;
 public class TestUrl2 {
     public static void main(String[] args) {
 
-        String[] strs = {"http://www.baidu.com:80/love/java?lang=java","http://2DUO5I2HI8BGHJ0EKF3BQFWYUTNZ.200-DC.TOP/xyz/index.html","www"};
+        String[] strs = {"http://www.baidu.com:80/love/java?lang=java","http://2DUO5I2HI8BGHJ0EKF3BQFWYUTNZ.200-DC.TOP/xyz/index.html","http://core7.store"};
         for (String url : strs) {
             Pattern pattern = Pattern.compile("(\\w+):\\/\\/([^/:]+)(:\\d*)?([^# ]*)");
             Matcher matcher = pattern.matcher(url);
-            matcher.find();
+            if(matcher.find())
            /* for (int i = 1; i <= matcher.groupCount(); i++) {
                 System.out.print(matcher.group(i)+" ");
             }
-            System.out.println();*/
-            System.out.println(matcher.group(2));
+            System.out.println();*/ {
+                System.out.println(matcher.group(2));
+            }
         }
     }
     //实例中的数组包含 5 个元素，索引 0 对应的是整个字符串，索引 1 对应第一个匹配符（括号内），以此类推。
