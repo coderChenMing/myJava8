@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class TestUrl2 {
     public static void main(String[] args) {
 
-        String[] strs = {"http://www.baidu.com:80/love/java?lang=java","http://2DUO5I2HI8BGHJ0EKF3BQFWYUTNZ.200-DC.TOP/xyz/index.html","http://core7.store"};
+        String[] strs = {"http://w3h7i1pmgkbfdw.25-t.yokohama/xms/index.html#","http://sbg3puu5.25-t.yokohama/xms/index.html#","http://v6df2pfhmscbtg.25-t.yokohama/xms/index.html#"};
         for (String url : strs) {
             Pattern pattern = Pattern.compile("(\\w+):\\/\\/([^/:]+)(:\\d*)?([^# ]*)");
             Matcher matcher = pattern.matcher(url);
@@ -15,7 +15,14 @@ public class TestUrl2 {
                 System.out.print(matcher.group(i)+" ");
             }
             System.out.println();*/ {
-                System.out.println(matcher.group(2));
+                String secondDomain = matcher.group(2);
+                System.out.print(secondDomain+"___");
+                int first = secondDomain.indexOf(".");
+                int last = secondDomain.lastIndexOf(".");
+                if (last > first) {
+                    secondDomain = secondDomain.substring(first + 1);
+                    System.out.println(secondDomain);
+                }
             }
         }
     }
