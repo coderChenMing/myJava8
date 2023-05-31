@@ -21,6 +21,11 @@ public class FIFOCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     public static void main(String[] args) {
+        //test1();
+        test2();
+
+    }
+    public static void test1() {
         FIFOCache<String, String> cache = new FIFOCache<>(2);
         cache.put("1", "张三");
         cache.put("2", "李四");
@@ -29,5 +34,28 @@ public class FIFOCache<K, V> extends LinkedHashMap<K, V> {
         cache.put("5", "崔七");
         System.out.println(cache);
         System.out.println(cache.size());
+    }
+
+    public static void test2() {
+        FIFOCache<String, Integer> fifoCache = new FIFOCache<>(3);
+
+        fifoCache.put("Bob",37);
+        fifoCache.put("Tony",27);
+        fifoCache.put("Aaron",23);
+        System.out.println("fifoCache:");
+        fifoCache.forEach( (k,v) -> System.out.println("K : " + k + " V : " + v ) );
+
+        fifoCache.put("Cat", 3);
+        System.out.println("add new entry fifoCache :");
+        fifoCache.forEach( (k,v) -> System.out.println("K : " + k + " V : " + v ) );
+
+        fifoCache.put("Aaron", 24);
+        System.out.println("access \"Aaron\" , fifoCache :");
+        fifoCache.forEach( (k,v) -> System.out.println("K : " + k + " V : " + v ) );
+
+        fifoCache.get("Cat");
+        fifoCache.put("David", 30);
+        System.out.println("access \"Cat\", add new entry, fifoCache :");
+        fifoCache.forEach( (k,v) -> System.out.println("K : " + k + " V : " + v ) );
     }
 }
