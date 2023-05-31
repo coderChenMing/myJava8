@@ -28,5 +28,6 @@ public class FIFOCache<K, V> extends LinkedHashMap<K, V> {
         cache.put("4", "何六");
         cache.put("5", "崔七");
         System.out.println(cache);
+        System.out.println(cache.size());
     }
 }
