@@ -30,7 +30,7 @@ public class JDKProxy implements InvocationHandler {
 
         // 调用被代理对象相应的方法
         Object result = method.invoke(object, args);
-
+        System.out.println(proxy.getClass().getName());
         System.out.println("JDK Proxy: End\n");
         return result;
     }
