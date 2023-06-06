@@ -17,7 +17,7 @@ class Animal extends  Cell{
     static int sAnimalDefault;
     public static int sAnimalPublic;
 }
-class Dog extends Animal implements I1, I2 {
+class Dog extends Fruit implements I1, I2 {
     private int mDogPrivate;
     public int mDogPublic;
     protected int mDogProtected;
@@ -29,7 +29,7 @@ class Dog extends Animal implements I1, I2 {
 }
 public class Test {
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
-        Class<Dog> dog = Dog.class;
+        Class<Banana> dog = Banana.class;
         //类名打印
         System.out.println(dog.getName()); //com.cry.Dog
         System.out.println(dog.getSimpleName()); //Dog
@@ -47,7 +47,7 @@ public class Test {
         //父类
         System.out.println(dog.getSuperclass());//class com.cry.Animal
         //创建对象
-        Dog d = dog.newInstance();
+        Banana d = dog.newInstance();
         //字段
         for (Field f : dog.getFields()) {
             System.out.println(f.getName());

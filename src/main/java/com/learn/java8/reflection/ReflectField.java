@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 public class ReflectField {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, InstantiationException, IllegalAccessException {
-        Class<?> clazz = Class.forName("com.learn.java8.reflection.Student");
+        Class<?> clazz = Class.forName("com.learn.java8.reflection.Fruit");
         //获取指定字段名称的Field类,注意字段修饰符必须为public而且存在该字段,
         // 否则抛NoSuchFieldException
         Field field = clazz.getField("age");
@@ -26,7 +26,7 @@ public class ReflectField {
         Field field2 = clazz.getDeclaredField("desc");
         System.out.println("field2:" + field2);
         System.out.println("-----------------------赋值---------------------");
-        Student st = (Student) clazz.newInstance();
+        Fruit st = (Fruit) clazz.newInstance();
         //获取父类public字段并赋值
         Field ageField = clazz.getField("age");
         ageField.set(st, 18);
@@ -66,7 +66,7 @@ class Person {
     //省略set和get方法
 }
 
-class Student extends Person {
+class Student extends Banana {
     public String desc;
     private int score;
     //省略set和get方法
