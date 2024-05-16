@@ -8,16 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * cn.org.cnvd.flaw.utils@cnvd-flaw
- *
- * <h1>word工具类</h1>
- * date 2021-08-27 10:34
- *
- * @author YuanWenhao[www.ywh1421@163.com]
- * @version 1.0.0
- * @since DistributionVersion
- */
+
 @Slf4j
 public class WordUtil {
 
